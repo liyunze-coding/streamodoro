@@ -1,12 +1,10 @@
 const timer = document.querySelector('#timer');
-const alarm = new Audio('./audio/pins_mommy.mp3');
+const alarm = new Audio('./audio/ding.mp3');
 alarm.volume=0.2;
 let time;
 let minutes, seconds, formattedTime;
 let pause = false;
 let reset = false;
-// const raid_shadow_legends = new Audio('./src/raid_alert.mp3');
-
 
 function processTime(str) {
     if (typeof str != "string"){
@@ -25,11 +23,6 @@ function processTime(str) {
     }
     return [time_seconds, min, sec]
 }
-
-// ComfyJS.onRaid = (user, viewers, extra) => {
-//     raid_shadow_legends.play();
-//     ComfyJS.Say(`THANK YOU ${user} FOR THE RAID (${viewers} viewers)`);
-// }
 
 ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
     message = message.trim(); //trim message so no whitespaces
