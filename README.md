@@ -17,3 +17,7 @@ Example:
 
 -    setting focus time to 50 minutes 10 seconds: `!timer 50m 10s focus`
 -    setting break time to 10 minutes : `!timer 10m break`
+
+---
+
+If you would like the whole set of overlays, check out the [coworking overlays](https://www.github.com/liyunze-coding/coworking-overlays)!
