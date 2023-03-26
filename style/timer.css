@@ -1,38 +1,94 @@
-@import url("https://fonts.googleapis.com/css2?family=Hubballi&family=Poiret+One&display=swap");
-
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--timer-font: sans-serif;
+	--status-font: sans-serif;
+	--pomo-font: sans-serif;
+
+	--timer-width: 200px;
+	--timer-height: 100px;
+
+	--background-color: rgba(0, 0, 0, 0.5);
+
+	--status-font-color: white;
+	--status-font-size: 20px;
+	--status-font-weight: 400;
+	--status-margin-left: 10px;
+	--status-margin-right: 10px;
+
+	--pomo-font-color: white;
+	--pomo-font-size: 20px;
+	--pomo-font-weight: 400;
+	--pomo-margin-left: 10px;
+	--pomo-margin-right: 10px;
+
+	--status-pomo-width: 100%;
+
+	--timer-font-color: white;
+	--timer-font-size: 35px;
+	--timer-font-weight: 400;
+	--timer-text-align: center;
+
+	--padding: 5px;
+
+	--border-width: 2px;
+	--border-color: white;
+	--border-radius: 10px;
+}
+
+body {
+	background-color: gray;
 }
 
 #status {
-    font-family: "hubballi";
+	font-family: var(--status-font);
+	color: var(--status-font-color);
+	font-size: var(--status-font-size);
+
+	margin-left: var(--status-margin-left);
+	margin-right: var(--status-margin-right);
+}
+
+.status-pomo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: var(--status-pomo-width);
+}
+
+#pomo-count {
+	font-family: var(--pomo-font);
+	color: var(--pomo-font-color);
+	font-size: var(--pomo-font-size);
+
+	margin-left: var(--pomo-margin-left);
+	margin-right: var(--pomo-margin-right);
 }
 
 #timer_div {
-    color: #fafafa;
-    background: rgba(20, 20, 20, 0.9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 
-    font-family: "Poiret One";
-    font-size: 35px;
+	background: var(--background-color);
 
-    border: solid 2px white;
-    border-radius: 10px;
+	border: solid var(--border-width) var(--border-color);
+	border-radius: var(--border-radius);
 
-    width: auto;
-    padding: 5px;
+	width: var(--timer-width);
+	height: var(--timer-height);
 
-    position: absolute;
-    top: 0px;
-    left: 0px;
+	padding: var(--padding);
 
-    min-width: 150px;
-    text-align: center;
+	text-align: var(--timer-text-align);
 }
 
 #timer {
-    display:flex;
-    align-items:center;
-    justify-content: center;
-    flex-direction: column;
+	font-family: var(--timer-font);
+	font-size: var(--timer-font-size);
+	color: var(--timer-font-color);
 }

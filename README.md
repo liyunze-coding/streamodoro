@@ -1,4 +1,6 @@
-# Twitch timer bot
+# Streamodoro
+
+A simple pomodoro timer overlay for streamers.
 
 ## Setup
 

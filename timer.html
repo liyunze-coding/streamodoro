@@ -8,18 +8,32 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<link rel="stylesheet" href="style/timer.css" />
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+		<script defer src="./configs.js"></script>
+		<script defer src="./auth.js"></script>
+		<script
+			defer
+			src="./scripts/timer.js"
+			type="text/javascript"
+		></script>
+		<script
+			defer
+			src="./scripts/index.js"
+			type="text/javascript"
+		></script>
+
 		<title>Timer</title>
 	</head>
 	<body>
 		<div id="timer_div">
-			<div id="timer">
-				<span id="status">Break</span>
-				<span id="current-time">00:00</span>
+			<div class="status-pomo">
+				<div id="status"></div>
+				<div id="pomo-count">0/?</div>
 			</div>
+			<span id="timer">00:00</span>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
-		<script src="scripts/timer.js" type="text/javascript"></script>
-		<script src="scripts/index.js" type="text/javascript"></script>
 	</body>
 </html>

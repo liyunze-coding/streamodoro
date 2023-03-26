@@ -1,8 +1,35 @@
-// feel free to add/edit responding commands here
-const commands = {
-    'taskhelp': `{user} "!task [task]" to add your task to the list; "!done" when you're done with your task; "!remove" if you made a typo in the previous task.`,
-    'ryanpython': `@RyanPython helped make this bot possible. Follow him on twitch.tv/RyanPython <3`
-}
+// get configs.commands
+const commands = configs.customCommands;
 
-ComfyJS.Init("YOUR CHANNEL HERE", "oauth:PUT TOKEN HERE");
-//ComfyJS.Init("YOUR BOT ACCOUNT", "oauth:ACCESS_TOKEN_HERE", 'YOUR CHANNEL') // use this if you're using a different account from your broadcasting account
+ComfyJS.onCommand = (user, command, message, flags, extra) => {
+	command = `!${command.toLowerCase()}`;
+	if (commands.startTimerCommands.includes(command)) {
+		let time = processTime(message);
+
+		if (time[0] <= 0) {
+			return ComfyJS.Say(`@${user} Invalid input!`);
+		}
+
+		startTimer(time[0]);
+		updateStatus(message);
+
+		ComfyJS.Say(
+			`@${user} Timer started! ${time[1]} minutes ${time[2]} seconds`
+		);
+	} else if (commands.pauseTimerCommands.includes(command)) {
+		pauseTimer();
+		ComfyJS.Say(`@${user} Timer paused!`);
+	} else if (commands.resumeTimerCommands.includes(command)) {
+		resumeTimer();
+		ComfyJS.Say(`@${user} Timer resumed!`);
+	} else if (commands.resetTimerCommands.includes(command)) {
+		resetTimer();
+		ComfyJS.Say(`@${user} Timer reset!`);
+	} else if (commands.setPomoCountCommands.includes(command)) {
+		setPomoCount(user, message);
+	} else if (commands.commandsResponses[command]) {
+		ComfyJS.Say(commands[command].replace("{user}", user));
+	}
+};
+
+ComfyJS.Init(auth.username, `oauth:${auth.oauth}`, [auth.channel]);
