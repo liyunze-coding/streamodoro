@@ -10,6 +10,12 @@ let time;
 let minutes, seconds, formattedTime;
 let pause = false;
 let reset = false;
+let timerRunning = false;
+
+let durations = configs.durations;
+
+// todo
+// durations, automatic
 
 let focusText = configs.states.focusState;
 let breakText = configs.states.breakState;
@@ -66,15 +72,34 @@ function incrementPomoCount() {
 	document.getElementById("pomo-count").innerText = pomoCount;
 }
 
-function startTimer(time) {
+function sendWebHook() {
+	const request = new XMLHttpRequest();
+	request.open(
+		"POST",
+		"https://discord.com/api/webhooks/1052575561408585729/kaC1qa_lrxNQsKiPOe6ndsB9ukT_2JZ0Z8ZZEnL3psB8XzXNnIPWsdquL-T8Z2D9x95u"
+	);
+
+	request.setRequestHeader("Content-type", "application/json");
+
+	const params = {
+		content: `<@&1038436118816903210> https://twitch.tv/RyanPython\n\n${message}\n\n*sent from ryans\\_bot\\_*`,
+	};
+
+	request.send(JSON.stringify(params));
+}
+
+function startTimer(timer_seconds) {
 	pause = false;
 	reset = false;
 
-	let interval = setInterval(function () {
+	timerRunning = true;
+
+	let timerInterval = setInterval(function () {
 		if (reset) {
-			time = 0;
+			timer_seconds = 0;
 			reset = false;
-			clearInterval(interval);
+			clearInterval(timerInterval);
+			timerRunning = false;
 			timer.innerHTML = `00:00`;
 
 			return;
@@ -82,8 +107,9 @@ function startTimer(time) {
 		if (pause) {
 			return;
 		}
-		if (time < 0) {
-			clearInterval(interval);
+		if (timer_seconds < 0) {
+			timerRunning = false;
+			clearInterval(timerInterval);
 			alarm.play();
 			if (pomoStatus === breakText) {
 				updateStatus(focusText);
@@ -93,16 +119,19 @@ function startTimer(time) {
 			} else if (pomoStatus === focusText) {
 				updateStatus(breakText);
 				ComfyJS.Say(`Time for a break!`);
+
+				// fetch
+				sendWebHook();
 			}
 			return;
 		}
-		minutes = Math.floor(time / 60);
-		seconds = time % 60;
+		minutes = Math.floor(timer_seconds / 60);
+		seconds = timer_seconds % 60;
 		formattedTime = `${minutes < 10 ? "0" : ""}${minutes}:${
 			seconds < 10 ? "0" : ""
 		}${seconds}`;
 		timer.innerHTML = formattedTime;
-		time--;
+		timer_seconds--;
 	}, 1000);
 }
 
