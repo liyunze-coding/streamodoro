@@ -2,6 +2,9 @@ const timer = document.querySelector("#timer");
 const timerStatus = document.querySelector("#status");
 const alarm = new Audio("./audio/ding.mp3");
 const pomoCount = document.querySelector("#pomo-count");
+const webHookURL = configs.discord.discordWebHook;
+const webHookMessage = configs.discord.discordWebHookMessage;
+const discordNotif = configs.discord.discordNotif;
 
 // ADJUST VOLUME HERE
 alarm.volume = 0.5;
@@ -74,15 +77,12 @@ function incrementPomoCount() {
 
 function sendWebHook() {
 	const request = new XMLHttpRequest();
-	request.open(
-		"POST",
-		"https://discord.com/api/webhooks/1052575561408585729/kaC1qa_lrxNQsKiPOe6ndsB9ukT_2JZ0Z8ZZEnL3psB8XzXNnIPWsdquL-T8Z2D9x95u"
-	);
+	request.open("POST", webHookURL);
 
 	request.setRequestHeader("Content-type", "application/json");
 
 	const params = {
-		content: `<@&1038436118816903210> https://twitch.tv/RyanPython\n\n${message}\n\n*sent from ryans\\_bot\\_*`,
+		content: webHookMessage,
 	};
 
 	request.send(JSON.stringify(params));
@@ -121,7 +121,9 @@ function startTimer(timer_seconds) {
 				ComfyJS.Say(`Time for a break!`);
 
 				// fetch
-				sendWebHook();
+				if (discordNotif) {
+					sendWebHook();
+				}
 			}
 			return;
 		}

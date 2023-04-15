@@ -1,4 +1,11 @@
 let configs = (function () {
+	// discord webhook for break time
+	const discordNotif = false;
+	const discordWebHook =
+		"https://discord.com/api/webhooks/1096670024544026674/IqxDpGG7Tk1nr_OhkVINZl92lk2EItvIz-ueFLjxyX5uC5I6zaPpGMLIpBskJi5H6l5L";
+	const discordWebHookMessage =
+		"<@&1038436118816903210> https://twitch.tv/RyanPython\n\nbreak time\n\n*sent from ryans\\_bot\\_*";
+
 	// statuses
 	const focusState = "Focus";
 	const breakState = "Break";
@@ -93,6 +100,16 @@ let configs = (function () {
 			"{user} check the commands of the timer here! https://github.com/liyunze-coding/streamodoro#usage",
 	};
 
+	// const durations = {
+	// 	workTimeDuration,
+	// 	breakTimeDuration,
+	// };
+
+	// const automatic = {
+	// 	automaticStart,
+	// 	automaticStartDelay,
+	// };
+
 	const states = {
 		focusState,
 		breakState,
@@ -147,6 +164,12 @@ let configs = (function () {
 		commandsResponses,
 	};
 
+	const discord = {
+		discordNotif,
+		discordWebHook,
+		discordWebHookMessage,
+	};
+
 	return {
 		states,
 		settings,
@@ -154,5 +177,6 @@ let configs = (function () {
 		styles,
 		backgroundStyles,
 		customCommands,
+		discord,
 	};
 })();
