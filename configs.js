@@ -1,10 +1,7 @@
 let configs = (function () {
 	// discord webhook for break time
 	const discordNotif = false;
-	const discordWebHook =
-		"https://discord.com/api/webhooks/1096670024544026674/IqxDpGG7Tk1nr_OhkVINZl92lk2EItvIz-ueFLjxyX5uC5I6zaPpGMLIpBskJi5H6l5L";
-	const discordWebHookMessage =
-		"<@&1038436118816903210> https://twitch.tv/RyanPython\n\nbreak time\n\n*sent from ryans\\_bot\\_*";
+	const discordWebHookMessage = "I'm live";
 
 	// statuses
 	const focusState = "Focus";
@@ -166,7 +163,6 @@ let configs = (function () {
 
 	const discord = {
 		discordNotif,
-		discordWebHook,
 		discordWebHookMessage,
 	};
 

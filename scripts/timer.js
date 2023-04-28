@@ -2,7 +2,7 @@ const timer = document.querySelector("#timer");
 const timerStatus = document.querySelector("#status");
 const alarm = new Audio("./audio/ding.mp3");
 const pomoCount = document.querySelector("#pomo-count");
-const webHookURL = configs.discord.discordWebHook;
+const webHookURL = auth.discordWebHook;
 const webHookMessage = configs.discord.discordWebHookMessage;
 const discordNotif = configs.discord.discordNotif;
 
