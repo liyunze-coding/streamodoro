@@ -9,5 +9,6 @@ const auth = (function () {
 		channel,
 		username,
 		oauth,
+		discordWebHook
 	};
 })();
