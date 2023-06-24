@@ -1,7 +1,8 @@
 let configs = (function () {
 	// discord webhook for break time
 	const discordNotif = false;
-	const discordWebHookMessage = "I'm live";
+	const discordWebHookMessage =
+		"<@&1052576825504698388> https://twitch.tv/RyanPython\n\nbreak time\n\n*sent from ryans\\_bot\\_*";
 
 	// statuses
 	const focusState = "Focus";
@@ -92,6 +93,13 @@ let configs = (function () {
 		"!setpomosnumber",
 	];
 
+	const addTimeCommands = [
+		"!addtime",
+		"!timeradd",
+		"!addtimer",
+		"!timeadd"
+	]
+
 	const commandsResponses = {
 		timerhelp:
 			"{user} check the commands of the timer here! https://github.com/liyunze-coding/streamodoro#usage",
@@ -158,6 +166,7 @@ let configs = (function () {
 		resetTimerCommands,
 		resumeTimerCommands,
 		setPomoCountCommands,
+		addTimeCommands,
 		commandsResponses,
 	};
 

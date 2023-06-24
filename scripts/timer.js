@@ -14,6 +14,8 @@ let minutes, seconds, formattedTime;
 let pause = false;
 let reset = false;
 let timerRunning = false;
+let timer_seconds = 0;
+let focusStatus = true;
 
 let durations = configs.durations;
 
@@ -48,6 +50,7 @@ function updateStatus(str) {
 	if (str.includes("break") || str.includes(breakText.toLowerCase())) {
 		pomoStatus = breakText;
 		timerStatus.innerText = breakText;
+		focusStatus = false;
 	} else if (
 		str.includes("focus") ||
 		str.includes("work") ||
@@ -56,13 +59,16 @@ function updateStatus(str) {
 		// change pomo status and update timer status
 		pomoStatus = focusText;
 		timerStatus.innerText = focusText;
+		focusStatus = true;
 	} else {
 		// when it's break, change to focus
 		// when it's focus, change to break
 		if (pomoStatus === breakText) {
 			timerStatus.innerText = breakText;
+			focusStatus = false;
 		} else if (pomoStatus === focusText) {
 			timerStatus.innerText = focusText;
+			focusStatus = true;
 		}
 	}
 }
@@ -88,7 +94,7 @@ function sendWebHook() {
 	request.send(JSON.stringify(params));
 }
 
-function startTimer(timer_seconds) {
+function activateTimer() {
 	pause = false;
 	reset = false;
 
@@ -145,8 +151,17 @@ function resumeTimer() {
 	pause = false;
 }
 
+function addTimeToTimer(seconds) {
+	timer_seconds += seconds;
+}
+
 function resetTimer() {
 	reset = true;
+}
+
+function startTimer(time_seconds) {
+	timer_seconds = time_seconds;
+	activateTimer();
 }
 
 function sleep(ms) {
