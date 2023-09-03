@@ -4,10 +4,9 @@ A simple pomodoro timer overlay for streamers.
 
 ## Setup
 
-The setup process is similar to the task overlay bot
+use https://twitchapps.com/tmi/ to generate an auth token and put it in auth.js > oauth.
 
--    [VIDEO](https://youtu.be/Gf53pxJkJd0)
--    [README instructions](https://github.com/liyunze-coding/Twitch-task-overlay#readme)
+it should look like `const oauth = "alksdgasdg987asdg";`, do not include `oauth:` 
 
 ---
 

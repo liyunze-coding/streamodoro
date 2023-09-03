@@ -1,10 +1,10 @@
 // get configs.commands
 const commands = configs.customCommands;
-const enabledEnforce = configs.enforcement.enableEnforce;
+// const enabledEnforce = configs.enforcement.enableEnforce;
 
 let enforceCommandChat = true;
 
-const twitchBots = configs.enforcement.twitchBots;
+// const twitchBots = configs.enforcement.twitchBots;
 
 // check permissions if user is mod or broadcaster
 
@@ -53,12 +53,12 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 		ComfyJS.Say(
 			`@${user} Added ${time[1]} minutes ${time[2]} seconds to timer!`
 		);
+	} else if (commands.endTimerEarlyCommands.includes(command) && isMod) {
+		endTimerEarly();
+		ComfyJS.Say(`@${user} Timer ended early!`);
 	} else if (commands.commandsResponses[command]) {
 		ComfyJS.Say(commands[command].replace("{user}", user));
-	} 
+	}
 };
-
-
-
 
 ComfyJS.Init(auth.username, `oauth:${auth.oauth}`, [auth.channel]);

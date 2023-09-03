@@ -1,6 +1,6 @@
 let configs = (function () {
 	// discord webhook for break time
-	const discordNotif = false;
+	const discordNotif = true;
 	const discordWebHookMessage =
 		"<@&1052576825504698388> https://twitch.tv/RyanPython\n\nbreak time\n\n*sent from ryans\\_bot\\_*";
 
@@ -17,15 +17,15 @@ let configs = (function () {
 	const timerHeight = "60px";
 
 	const backgroundColor = "#141414";
-	const backgroundOpacity = 0.8;
+	const backgroundOpacity = 0;
 
 	const padding = "10px";
 
-	const borderWidth = "2px";
+	const borderWidth = "0px";
 	const borderColor = "#ffffff";
 	const borderRadius = "10px";
 
-	// fonts
+	// fonts, must be google font : fonts.google.com
 	const timerFont = "Courier Prime";
 	const statusFont = "Nunito";
 	const pomoFont = "Nunito";
@@ -62,12 +62,7 @@ let configs = (function () {
 		"!begintimer",
 	];
 
-	const pauseTimerCommands = [
-		"!pause",
-		"!stop",
-		"!stoptimer",
-		"!pausetimer",
-	];
+	const pauseTimerCommands = ["!pause", "!stop", "!stoptimer", "!pausetimer"];
 
 	const resetTimerCommands = [
 		"!reset",
@@ -93,12 +88,14 @@ let configs = (function () {
 		"!setpomosnumber",
 	];
 
-	const addTimeCommands = [
-		"!addtime",
-		"!timeradd",
-		"!addtimer",
-		"!timeadd"
-	]
+	const addTimeCommands = ["!addtime", "!timeradd", "!addtimer", "!timeadd"];
+
+	const endTimerEarlyCommands = [
+		"!endtimer",
+		"!end",
+		"!endearly",
+		"!endtimerearly",
+	];
 
 	const commandsResponses = {
 		timerhelp:
@@ -167,6 +164,7 @@ let configs = (function () {
 		resumeTimerCommands,
 		setPomoCountCommands,
 		addTimeCommands,
+		endTimerEarlyCommands,
 		commandsResponses,
 	};
 

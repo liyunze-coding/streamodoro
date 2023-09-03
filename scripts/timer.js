@@ -94,6 +94,24 @@ function sendWebHook() {
 	request.send(JSON.stringify(params));
 }
 
+function endTimerEarly() {
+	alarm.play();
+	resetTimer();
+	incrementPomoCount();
+
+	if (pomoStatus === breakText) {
+		updateStatus(focusText);
+
+		ComfyJS.Say(`Time to get back to work!`);
+	} else if (pomoStatus === focusText) {
+		updateStatus(breakText);
+		incrementPomoCount();
+
+		ComfyJS.Say(`Time for a break!`);
+	}
+	return;
+}
+
 function activateTimer() {
 	pause = false;
 	reset = false;
@@ -119,11 +137,12 @@ function activateTimer() {
 			alarm.play();
 			if (pomoStatus === breakText) {
 				updateStatus(focusText);
-				incrementPomoCount();
 
 				ComfyJS.Say(`Time to get back to work!`);
 			} else if (pomoStatus === focusText) {
 				updateStatus(breakText);
+				incrementPomoCount();
+
 				ComfyJS.Say(`Time for a break!`);
 
 				// fetch
@@ -250,7 +269,6 @@ function hexToRgb(hex) {
 	// load fonts from configs.fonts which is an object
 	for (let font in configs.fonts) {
 		loadGoogleFont(configs.fonts[font]);
-		console.log(font, configs.fonts[font]);
 		document.documentElement.style.setProperty(
 			convertToCSSVar(font),
 			configs.fonts[font]
