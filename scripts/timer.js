@@ -97,7 +97,6 @@ function sendWebHook() {
 function endTimerEarly() {
 	alarm.play();
 	resetTimer();
-	incrementPomoCount();
 
 	if (pomoStatus === breakText) {
 		updateStatus(focusText);
