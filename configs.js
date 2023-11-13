@@ -1,8 +1,9 @@
 let configs = (function () {
 	// discord webhook for break time
-	const discordNotif = true;
-	const discordWebHookMessage =
-		"<@&1052576825504698388> https://twitch.tv/RyanPython\n\nbreak time\n\n*sent from ryans\\_bot\\_*";
+	const discordNotif = false;
+	const discordWebHookMessage = "";
+
+	const incrementAfterBreak = false; // true: increment after break, false: increment after focus
 
 	// statuses
 	const focusState = "Focus";
@@ -62,7 +63,12 @@ let configs = (function () {
 		"!begintimer",
 	];
 
-	const pauseTimerCommands = ["!pause", "!stop", "!stoptimer", "!pausetimer"];
+	const pauseTimerCommands = [
+		"!pause",
+		"!stop",
+		"!stoptimer",
+		"!pausetimer",
+	];
 
 	const resetTimerCommands = [
 		"!reset",
@@ -120,6 +126,7 @@ let configs = (function () {
 	const settings = {
 		showStatus,
 		showPomo,
+		incrementAfterBreak,
 	};
 
 	const fonts = {

@@ -5,6 +5,7 @@ const pomoCount = document.querySelector("#pomo-count");
 const webHookURL = auth.discordWebHook;
 const webHookMessage = configs.discord.discordWebHookMessage;
 const discordNotif = configs.discord.discordNotif;
+const incrementAfterBreak = configs.settings.incrementAfterBreak;
 
 // ADJUST VOLUME HERE
 alarm.volume = 0.5;
@@ -101,10 +102,17 @@ function endTimerEarly() {
 	if (pomoStatus === breakText) {
 		updateStatus(focusText);
 
+		if (incrementAfterBreak) {
+			incrementPomoCount();
+		}
+
 		ComfyJS.Say(`Time to get back to work!`);
 	} else if (pomoStatus === focusText) {
 		updateStatus(breakText);
-		incrementPomoCount();
+
+		if (!incrementAfterBreak) {
+			incrementPomoCount();
+		}
 
 		ComfyJS.Say(`Time for a break!`);
 	}
@@ -137,10 +145,17 @@ function activateTimer() {
 			if (pomoStatus === breakText) {
 				updateStatus(focusText);
 
+				if (incrementAfterBreak) {
+					incrementPomoCount();
+				}
+
 				ComfyJS.Say(`Time to get back to work!`);
 			} else if (pomoStatus === focusText) {
 				updateStatus(breakText);
-				incrementPomoCount();
+
+				if (!incrementAfterBreak) {
+					incrementPomoCount();
+				}
 
 				ComfyJS.Say(`Time for a break!`);
 

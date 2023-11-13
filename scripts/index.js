@@ -56,8 +56,10 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 	} else if (commands.endTimerEarlyCommands.includes(command) && isMod) {
 		endTimerEarly();
 		ComfyJS.Say(`@${user} Timer ended early!`);
-	} else if (commands.commandsResponses[command]) {
-		ComfyJS.Say(commands[command].replace("{user}", user));
+	} else if (commands.commandsResponses.includes(command)) {
+		ComfyJS.Say(
+			commands.commandsResponses[command].replace("{user}", user)
+		);
 	}
 };
 
