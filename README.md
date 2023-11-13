@@ -21,11 +21,17 @@ A simple pomodoro timer overlay for streamers.
 
 ## Commands
 
-`!timer [time] [focus/break]`
+1. `!timer [time] [focus/break]`
 
 Example:
 
 -    setting focus time to 50 minutes 10 seconds: `!timer 50m 10s focus`
 -    setting break time to 10 minutes : `!timer 10m break`
+
+2. `!setpomo [number of pomos]`
+
+Example:
+
+- `!setpomo 3`: Sets pomo counter to `?/3`
 
 ---
