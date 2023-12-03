@@ -12,9 +12,6 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 	command = `!${command.toLowerCase()}`;
 	const isMod = flags.broadcaster || flags.mod;
 
-	console.log(command);
-	console.log(commands.commandsResponses[command]);
-
 	if (commands.startTimerCommands.includes(command) && isMod) {
 		let time = processTime(message);
 
