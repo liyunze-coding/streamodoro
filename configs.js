@@ -1,7 +1,8 @@
 let configs = (function () {
 	// discord webhook for break time
-	const discordNotif = false;
-	const discordWebHookMessage = "";
+	const discordNotif = true;
+	const discordWebHookMessage =
+		"<@&1052576825504698388> \n## https://twitch.tv/RythonDev\n\nbreak time";
 
 	const incrementAfterBreak = false; // true: increment after break, false: increment after focus
 
@@ -14,7 +15,7 @@ let configs = (function () {
 	const showPomo = true;
 
 	// overall
-	const timerWidth = "130px";
+	const timerWidth = "160px";
 	const timerHeight = "60px";
 
 	const backgroundColor = "#141414";
@@ -50,7 +51,7 @@ let configs = (function () {
 
 	// timer
 	const timerFontColor = "#ffffff";
-	const timerFontSize = "35px";
+	const timerFontSize = "40px";
 	const timerFontWeight = "normal";
 	const timerTextAlign = "center";
 
@@ -104,7 +105,7 @@ let configs = (function () {
 	];
 
 	const commandsResponses = {
-		timerhelp:
+		"!timerhelp":
 			"{user} check the commands of the timer here! https://github.com/liyunze-coding/streamodoro#usage",
 	};
 

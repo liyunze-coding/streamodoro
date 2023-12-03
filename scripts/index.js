@@ -12,6 +12,9 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 	command = `!${command.toLowerCase()}`;
 	const isMod = flags.broadcaster || flags.mod;
 
+	console.log(command);
+	console.log(commands.commandsResponses[command]);
+
 	if (commands.startTimerCommands.includes(command) && isMod) {
 		let time = processTime(message);
 
@@ -56,10 +59,11 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 	} else if (commands.endTimerEarlyCommands.includes(command) && isMod) {
 		endTimerEarly();
 		ComfyJS.Say(`@${user} Timer ended early!`);
-	} else if (commands.commandsResponses.includes(command)) {
-		ComfyJS.Say(
-			commands.commandsResponses[command].replace("{user}", user)
-		);
+	} else if (commands.commandsResponses[command]) {
+		let response = commands.commandsResponses[command];
+		console.log(response);
+		console.log(response.replace("{user}", user));
+		ComfyJS.Say(response.replace("{user}", user));
 	}
 };
 
