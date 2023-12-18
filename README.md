@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Please use [Moh's pomodoro timer](https://github.com/mohamed-tayeh/Minimal-Pomo-Timer) instead
+
 # Streamodoro
 
 A simple pomodoro timer overlay for streamers.
