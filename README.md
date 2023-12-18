@@ -1,6 +1,6 @@
 # DEPRECATED
 
-Please use [Moh's pomodoro timer](https://github.com/mohamed-tayeh/Minimal-Pomo-Timer) instead
+Please use [Moh's pomodoro timer](https://github.com/mohamed-tayeh/Minimal-Pomo-Timer) instead. It's more professionally written and has more features in an organized manner.
 
 # Streamodoro
 
